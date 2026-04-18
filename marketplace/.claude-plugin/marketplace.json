@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "vanadis-open",
+  "description": "Vanadis open plugins — a small public marketplace of Claude Code plugins built by Vanadis",
+  "owner": {
+    "name": "Vanadis"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "van-amail",
+      "source": "./plugins/van-amail",
+      "description": "agent mail — pair two Claude Code instances with a short code, then exchange single-read messages without copy-paste through a human courier. Authenticated via per-user API token (optionally Google OAuth) on the amail service.",
+      "version": "0.1.0",
+      "author": { "name": "Vanadis", "email": "pasha@vanadis.ai" },
+      "category": "collaboration",
+      "keywords": ["amail", "messaging", "claude-code", "pairing", "cross-machine", "agent-to-agent"],
+      "license": "MIT",
+      "homepage": "https://github.com/Vanadis-ai/vanadis-open-bord",
+      "repository": "https://github.com/Vanadis-ai/vanadis-open-bord"
+    }
+  ]
+}

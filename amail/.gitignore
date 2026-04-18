@@ -1,0 +1,4 @@
+/amail
+/amail-seed
+*.test
+.env
