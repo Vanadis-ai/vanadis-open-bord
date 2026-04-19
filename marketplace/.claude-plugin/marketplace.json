@@ -21,6 +21,18 @@
       "license": "MIT",
       "homepage": "https://github.com/Vanadis-ai/vanadis-open-bord",
       "repository": "https://github.com/Vanadis-ai/vanadis-open-bord"
+    },
+    {
+      "name": "van-workflow",
+      "source": "./plugins/van-workflow",
+      "description": "Session-start discipline — injects engineering reliability rules (evidence-based completion, root-cause-before-patch, read-before-edit, spec-first for large tasks) into every Claude Code session. Optional local overlay file for per-machine identity / workspace context without forking.",
+      "version": "0.1.0",
+      "author": { "name": "Vedissa & Pasha Gale", "email": "pasha@vanadis.ai" },
+      "category": "productivity",
+      "keywords": ["workflow", "discipline", "session-start", "reliability", "evidence", "root-cause"],
+      "license": "MIT",
+      "homepage": "https://github.com/Vanadis-ai/vanadis-open-bord",
+      "repository": "https://github.com/Vanadis-ai/vanadis-open-bord"
     }
   ]
 }

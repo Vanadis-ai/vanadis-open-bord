@@ -1,0 +1,39 @@
+# Local overlay for van-workflow
+
+This file is read by van-workflow on session start and appended to the engineering-discipline
+system-reminder as "LOCAL OVERLAY". Use it for things that are specific to YOUR machine and
+should be fresh in the agent's memory every session — but do not belong in the public plugin.
+
+Typical sections people put here:
+
+## Identity
+Name the agent goes by on this machine. Example:
+
+> I am Alice's assistant on her work laptop. My scope is the web-platform team.
+
+## Workspace
+Paths, project roots, anything that helps the agent understand where things live. Example:
+
+> - Main workspace: `~/Workspace/Acme/`
+> - Active project: `payments-service`
+> - Related services on the same host: `orders-api`, `users-api`
+
+## Organization context
+Which org / Jira instance / Slack workspace is in scope. Example:
+
+> - Jira instance: `acme` (jira.acme.com)
+> - Git identity: `alice@acme.com` for all commits in this workspace
+
+## Extra reminders
+Anything that's saved you from a repeated mistake in the past. Example:
+
+> - Never run migrations against the shared dev DB without asking — use the branch-isolated DB
+> - For any API change, update the OpenAPI spec in `docs/api.yaml` and regenerate clients
+
+## What NOT to put here
+- Secrets, tokens, passwords — use your secret store instead
+- Long reference material — that belongs in the project's CLAUDE.md
+- Anti-patterns that apply to all developers — that's what the universal blocks are for
+
+Short, high-salience reminders only. If a line here wouldn't make the top-5 list of things the
+agent should know on every turn, it's probably too much.
