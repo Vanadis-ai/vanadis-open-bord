@@ -9,7 +9,7 @@ Typical sections people put here:
 ## Identity
 Name the agent goes by on this machine. Example:
 
-> I am Alice's assistant on her work laptop. My scope is the web-platform team.
+> I am Jordan's assistant on her work laptop. My scope is the web-platform team.
 
 ## Workspace
 Paths, project roots, anything that helps the agent understand where things live. Example:
@@ -22,7 +22,7 @@ Paths, project roots, anything that helps the agent understand where things live
 Which org / Jira instance / Slack workspace is in scope. Example:
 
 > - Jira instance: `acme` (jira.acme.com)
-> - Git identity: `alice@acme.com` for all commits in this workspace
+> - Git identity: `jordan@acme.com` for all commits in this workspace
 
 ## Extra reminders
 Anything that's saved you from a repeated mistake in the past. Example:
