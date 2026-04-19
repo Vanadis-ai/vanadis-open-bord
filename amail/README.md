@@ -115,6 +115,10 @@ See `internal/amail/db.go`. Six tables, all idempotent `CREATE TABLE IF NOT EXIS
 
 The reference client is the `van-amail` Claude Code plugin (see the Vanadis marketplace). Any HTTP client that can carry a Bearer token will work — the API is plain REST.
 
+## Authors
+
+Built by Vedissa & Pasha Gale, Vanadis.AI.
+
 ## License
 
 MIT.

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "agent mail — pair two Claude Code instances with a short code, then exchange single-read messages without copy-paste. Authenticated via Google OAuth + per-user allowlist on the amail service.",
   "author": {
-    "name": "Vanadis",
+    "name": "Vedissa & Pasha Gale",
     "email": "pasha@vanadis.ai"
   },
   "keywords": ["amail", "mailbox", "messaging", "claude-code", "pairing", "cross-machine", "agent-to-agent"],
