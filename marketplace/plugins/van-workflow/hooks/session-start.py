@@ -8,6 +8,14 @@ come first (generic to any developer). Optional local overlay is appended
 from ~/.claude/van-workflow-local.md if present — that's where the user puts
 identity, workspace context, or machine-specific reminders.
 
+SIZE LIMIT: Claude Code caps SessionStart hook additionalContext at
+MAX_HOOK_OUTPUT_CHARS (~10,000 chars in current releases — see
+MAX_HOOK_OUTPUT_LENGTH in src/utils/processUserInput/processUserInput.ts).
+Output over that is persisted to disk and replaced with a 2KB preview +
+file path, which DEFEATS the purpose of keeping rules fresh every session.
+The hook prints a warning to stderr when output exceeds SOFT_WARN_CHARS so
+you can trim the overlay before hitting the hard cap.
+
 Graceful: on any failure emits an empty context rather than blocking session start.
 """
 
@@ -19,6 +27,11 @@ from pathlib import Path
 
 LOCAL_OVERLAY = Path.home() / ".claude" / "van-workflow-local.md"
 ERM_FLAG = Path.home() / ".Vanadis" / "erm.flag"  # well-known but harmless on machines without it
+
+# Upper bound on hook additionalContext before Claude Code persists it to disk.
+MAX_HOOK_OUTPUT_CHARS = 10_000
+# Warn above this threshold so users notice they are approaching the cap.
+SOFT_WARN_CHARS = 8_500
 
 CUTOFF_YEAR = 2025
 CUTOFF_MONTH = 5
@@ -170,6 +183,24 @@ def build_context() -> str:
 def main() -> int:
     try:
         ctx = build_context()
+
+        # Size guardrails. Hard cap matches Claude Code's internal cap; above it
+        # the output would be persisted to disk and replaced with a preview.
+        size = len(ctx)
+        if size > MAX_HOOK_OUTPUT_CHARS:
+            sys.stderr.write(
+                f"van-workflow: SessionStart output is {size} chars, exceeds "
+                f"MAX_HOOK_OUTPUT_CHARS={MAX_HOOK_OUTPUT_CHARS}. Claude Code will "
+                f"persist it to disk instead of inlining. Trim "
+                f"~/.claude/van-workflow-local.md to reduce size.\n"
+            )
+        elif size > SOFT_WARN_CHARS:
+            sys.stderr.write(
+                f"van-workflow: SessionStart output is {size} chars, approaching "
+                f"the {MAX_HOOK_OUTPUT_CHARS}-char cap. Consider trimming the "
+                f"local overlay.\n"
+            )
+
         out = {
             "hookSpecificOutput": {
                 "hookEventName": "SessionStart",

@@ -37,6 +37,23 @@ The init script is idempotent — safe to re-run. It will:
 
 See `templates/van-workflow-local.md.example` for what typically goes there.
 
+## Size limit — keep it under ~10K chars
+
+Claude Code caps SessionStart hook `additionalContext` at roughly **10,000 characters** (see `MAX_HOOK_OUTPUT_LENGTH` in the Claude Code source). Output over that is persisted to disk and replaced with a 2KB preview + file path, which defeats the whole point of keeping rules fresh every session.
+
+The universal block this plugin emits is ~4.5KB. That leaves ~5KB for your local overlay with a safety margin. The hook checks its own output size at runtime:
+
+- Output > 8,500 chars → warning to stderr (approaching cap)
+- Output > 10,000 chars → louder warning (will be persisted by Claude Code)
+
+If you see the warning, trim the overlay: move anything that doesn't belong in **every single session** into project CLAUDE.md or a skill file. Short, high-salience reminders only — if a line wouldn't make the top-5 list of things the agent should know on every turn, it's too much.
+
+Quick size check from the command line:
+
+```bash
+python3 path/to/van-workflow/hooks/session-start.py | wc -c
+```
+
 ## Forking
 
 This plugin is intentionally generic. Fork it if you want to:
