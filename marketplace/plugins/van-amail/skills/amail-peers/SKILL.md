@@ -1,6 +1,6 @@
 ---
 name: amail-peers
-description: List all configured amail peers — use when the user asks "who am I connected to", "покажи peer-ов", "list amail connections", "кто в адресной книге".
+description: List all configured amail peers. Trigger phrases — "who am I connected to", "покажи peer-ов", "list amail connections", "кто в адресной книге", "/amail-peers", "/van-amail:amail-peers".
 user_invocable: true
 allowed-tools:
   - Bash

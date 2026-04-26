@@ -1,6 +1,6 @@
 ---
 name: amail-login
-description: Store an amail API token issued by the admin — use when the user pastes a long hex token and says "here's my amail token", "вот токен для почты", "login to amail". Once stored, all other amail commands (connect, accept, send, read) work for this machine.
+description: Store amail API token issued by the admin (enables all other amail commands). Trigger phrases — "here's my amail token", "вот токен для почты", "login to amail", "/amail-login", "/van-amail:amail-login".
 user_invocable: true
 allowed-tools:
   - Bash

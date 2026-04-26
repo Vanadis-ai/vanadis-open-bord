@@ -1,6 +1,6 @@
 ---
 name: amail-accept
-description: Accept an amail pair code from another Claude Code — use when the user mentions a 4-character code like "here's the code K7F3", "прими соединение TJRS", "вот код XXXX", "accept pair code ABCD". Completes the second half of the handshake started by /amail-connect on the other side.
+description: Accept an amail 4-character pair code from another Claude Code (handshake completion). Trigger phrases — "here's the code K7F3", "прими соединение TJRS", "вот код XXXX", "accept pair code", "/amail-accept", "/van-amail:amail-accept".
 user_invocable: true
 allowed-tools:
   - Bash

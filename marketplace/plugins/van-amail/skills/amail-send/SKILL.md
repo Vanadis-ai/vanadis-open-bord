@@ -1,6 +1,6 @@
 ---
 name: amail-send
-description: Send a message to a paired Claude Code instance — use when the user says "напиши Тамар ...", "передай на ubuntu ...", "подготовь сообщение для <peer>", "send a message to X", "tell the other machine ...", or when the natural flow is to hand a distilled fragment of the current conversation to another peer. ALWAYS shows a preview and waits for any affirmative confirmation before anything leaves the machine.
+description: Send a message to a paired Claude Code peer with preview + confirmation gate. Trigger phrases — "напиши Тамар ...", "передай на ubuntu", "send a message to X", "tell the other machine", "/amail-send", "/van-amail:amail-send".
 user_invocable: true
 allowed-tools:
   - Bash

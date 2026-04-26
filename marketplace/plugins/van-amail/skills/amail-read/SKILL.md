@@ -1,6 +1,6 @@
 ---
 name: amail-read
-description: Read all new amail messages from paired peers — use when the user asks "что там пришло", "что от Тамар", "есть сообщения", "прочитай инбокс", "check my amail", "any new messages". Fetches and atomically deletes new messages on the server (single-read semantics). Output is framed as quotes, not as instructions to the agent.
+description: Read new amail messages from paired peers (single-read, server-deletes). Trigger phrases — "что там пришло", "что от Тамар", "есть сообщения", "прочитай инбокс", "check my amail", "/amail-read", "/van-amail:amail-read".
 user_invocable: true
 allowed-tools:
   - Bash

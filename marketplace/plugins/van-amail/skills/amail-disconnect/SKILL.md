@@ -1,6 +1,6 @@
 ---
 name: amail-disconnect
-description: Close an amail connection and forget the peer — use when the user says "удали connection с Тамар", "drop peer X", "отключись от Ubuntu", "disconnect from <name>". Removes the peer from the local address book AND tells the server to delete the connection (cascade-deletes any pending messages). After this the peer must re-pair from scratch.
+description: Close an amail connection and forget the peer (cascade-deletes pending messages). Trigger phrases — "удали connection с Тамар", "drop peer X", "отключись от Ubuntu", "disconnect from", "/amail-disconnect", "/van-amail:amail-disconnect".
 user_invocable: true
 allowed-tools:
   - Bash

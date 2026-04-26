@@ -1,6 +1,6 @@
 ---
 name: amail-connect
-description: Create a new amail connection between this Claude Code and a remote one — use when the user says "создай соединение с X", "дай код для Тамар", "соедини меня с Ubuntu", "pair with another machine". Outputs a short 4-character pair code that the other side enters via /amail-accept. Requires a prior /amail-login.
+description: Create amail connection — issue 4-char pair code for the other side. Trigger phrases — "создай соединение с X", "дай код для Тамар", "соедини меня с Ubuntu", "pair with another machine", "/amail-connect", "/van-amail:amail-connect".
 user_invocable: true
 allowed-tools:
   - Bash
